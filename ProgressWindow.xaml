@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfPsoLoc.ProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfPsoLoc"
+        mc:Ignorable="d"
+        Title="ProgressWindow" Height="110" Width="220" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding ProgressText, FallbackValue='Postęp'}" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ProgressBar Grid.Row="1" Value="{Binding ProgressValue}" Minimum="0" Maximum="100" MinWidth="150" Height="18" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</Window>
