@@ -290,6 +290,59 @@ namespace WpfPsoLoc
             }
         }
 
+        private bool _XAxisFilp;
+        public bool XAxisFilp
+        {
+            get { return _XAxisFilp; }
+            set
+            {
+                _XAxisFilp = value;
+                if (_XAxisFilp)
+                    XAxisFilpV = -1;
+                else
+                    XAxisFilpV = 1;
+                OnPropertyChanged("XAxisFilp");
+            }
+        }
+
+
+        private int _XAxisFilpV;
+        public int XAxisFilpV
+        {
+            get { return _XAxisFilpV; }
+            set
+            {
+                _XAxisFilpV = value;
+                OnPropertyChanged("XAxisFilpV");
+            }
+        }
+
+        private bool _YAxisFilp;
+        public bool YAxisFilp
+        {
+            get { return _YAxisFilp; }
+            set
+            {
+                _YAxisFilp = value;
+                if (_YAxisFilp)
+                    YAxisFilpV = -1;
+                else
+                    YAxisFilpV = 1;
+                OnPropertyChanged("YAxisFilp");
+            }
+        }
+
+        private int _YAxisFilpV;
+        public int YAxisFilpV
+        {
+            get { return _YAxisFilpV; }
+            set
+            {
+                _YAxisFilpV = value;
+                OnPropertyChanged("YAxisFilpV");
+            }
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -324,6 +377,8 @@ namespace WpfPsoLoc
                 DeltaTmin = 0.005;
                 DeltaTinc = 0.005;
                 DeltaTmax = 0.09;
+                XAxisFilp = false;
+                YAxisFilp = false;
             }
         }
 
@@ -874,6 +929,12 @@ namespace WpfPsoLoc
                 DeltaTmax = 0.09;
             }
         }
+
+        private void CheckBox_Changed(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
         //private void Run_Click(object sender, RoutedEventArgs e)
         //{
