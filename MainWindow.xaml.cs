@@ -306,7 +306,7 @@ namespace WpfPsoLoc
         }
 
 
-        private int _XAxisFilpV;
+        private int _XAxisFilpV = 1;
         public int XAxisFilpV
         {
             get { return _XAxisFilpV; }
@@ -332,7 +332,7 @@ namespace WpfPsoLoc
             }
         }
 
-        private int _YAxisFilpV;
+        private int _YAxisFilpV = 1;
         public int YAxisFilpV
         {
             get { return _YAxisFilpV; }
