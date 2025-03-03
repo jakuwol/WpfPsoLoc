@@ -343,6 +343,32 @@ namespace WpfPsoLoc
             }
         }
 
+        private bool _XYInvert;
+        public bool XYInvert
+        {
+            get { return _XYInvert; }
+            set
+            {
+                _XYInvert = value;
+                if (_XYInvert)
+                    XYRotateV = 90;
+                else
+                    XYRotateV = 0;
+                OnPropertyChanged("XYInvert");
+            }
+        }
+
+        private double _XYRotateV = 0;
+        public double XYRotateV
+        {
+            get { return _XYRotateV; }
+            set
+            {
+                _XYRotateV = value;
+                OnPropertyChanged("XYRotateV");
+            }
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -379,6 +405,8 @@ namespace WpfPsoLoc
                 DeltaTmax = 0.09;
                 XAxisFilp = false;
                 YAxisFilp = false;
+                XYInvert = false;
+                XYRotateV = 0;
             }
         }
 

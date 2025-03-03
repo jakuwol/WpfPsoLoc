@@ -95,12 +95,16 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <CheckBox Content="X axis flip" IsChecked="{Binding XAxisFilp}" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="0,0,5,0"/>
                 <CheckBox Content="Y axis flip" IsChecked="{Binding YAxisFilp}" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="5,0,0,0"/>
+                <CheckBox Content="X/Y" IsChecked="{Binding XYInvert}" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="5,0,0,0"/>
             </StackPanel>
             <Border BorderThickness="2" BorderBrush="Black">
-                <Canvas Name="Canvas_Plot" Width="300" Height="300">
-                    <Canvas.LayoutTransform>
-                        <ScaleTransform ScaleX="{Binding XAxisFilpV}" ScaleY="{Binding YAxisFilpV}" CenterX=".5" CenterY=".5" />
-                    </Canvas.LayoutTransform>
+                <Canvas Name="Canvas_Plot" Width="300" Height="300" RenderTransformOrigin="0.5,0.5">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="{Binding XAxisFilpV}" ScaleY="{Binding YAxisFilpV}" CenterX=".5" CenterY=".5" />
+                            <RotateTransform Angle="{Binding XYRotateV}"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
                 </Canvas>
             </Border>
             <Slider Minimum="{Binding Vmin}" Maximum="{Binding Vmax}" TickFrequency="{Binding Vinc}" Value="{Binding VValue, Mode=TwoWay}" IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged" />
@@ -108,6 +112,6 @@
             <Slider Minimum="{Binding DeltaTmin}" Maximum="{Binding DeltaTmax}" TickFrequency="{Binding DeltaTinc}" Value="{Binding VDeltaTValue, Mode=TwoWay}" IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged" />
             <TextBlock VerticalAlignment="Center" TextAlignment="Center" Text="{Binding VDeltaTValue,  StringFormat=DeltaT {0}}"  />
         </StackPanel>
-        
+
     </Grid>
 </Window>
